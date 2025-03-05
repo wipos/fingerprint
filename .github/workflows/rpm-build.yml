@@ -20,11 +20,11 @@ jobs:
 
     - name: Setup RPM directories
       run: |
-        mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS}
+        mkdir -p /github/home/{BUILD,RPMS,SOURCES,SPECS}
 
     - name: Download source tarball
       run: |
-        wget -P ~/rpmbuild/SOURCES/ \
+        wget -P /github/home/SOURCES/ \
           "http://dell.archive.canonical.com/updates/pool/public/libf/libfprint-2-tod1-goodix/libfprint-2-tod1-goodix_0.0.6.orig.tar.gz"
 
 
