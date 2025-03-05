@@ -13,17 +13,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y rpm build-essential wget
-
-    - name: Download source tarball
-      run: |
-        wget -P /github/home/SOURCES/ \
-          "http://dell.archive.canonical.com/updates/pool/public/libf/libfprint-2-tod1-goodix/libfprint-2-tod1-goodix_0.0.6.orig.tar.gz"
-
-
     - name: Build RPM package
       uses: wipos/rpmbuild@master
       with:
