@@ -25,7 +25,7 @@ jobs:
 
 
     - name: Build RPM package
-      uses: naveenrajm7/rpmbuild@master
+      uses: wipos/rpmbuild@master
       with:
         spec_file: libfprint-tod-goodix.spec
 
