@@ -4,7 +4,7 @@ Release:        1%{?dist}
 Summary:        Goodix driver module for fingerprint reader to support 0x27C6 0x533C, 0x27C6 0x538C, 0x27C6 0x530C and 0x27C6 0x5840.
 
 License:        GPL-3.0
-Source0:        http://dell.archive.canonical.com/updates/pool/public/libf/libfprint-2-tod1-goodix/libfprint-2-tod1-goodix_%{version}.orig.tar.gz
+Source0:        libfprint-2-tod1-goodix_%{version}.orig.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Requires:       libfprint-tod
