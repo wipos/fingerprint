@@ -1,0 +1,34 @@
+name: Build and Deploy RPM
+
+on:
+  push:
+    branches: [ main, master ]
+  release:
+    types: [ published ]
+
+jobs:
+  build-rpm:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Build RPM package
+      uses: naveenrajm7/rpmbuild@centos8
+      with:
+        spec_file: libfprint-tod-goodix.spec
+
+    - name: Prepare gh-pages content
+      run: |
+        mkdir -p gh-pages/RPMS
+        cp -rv rpmbuild/RPMS/* gh-pages/RPMS/
+        createrepo_c gh-pages/
+        echo "Repository maintained by GitHub Actions" > gh-pages/README.md
+
+    - name: Deploy to gh-pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./gh-pages
+        keep_files: false
+        force_orphan: true
