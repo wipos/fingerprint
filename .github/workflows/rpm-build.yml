@@ -18,10 +18,6 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y rpm build-essential wget
 
-    - name: Setup RPM directories
-      run: |
-        mkdir -p /github/home/{BUILD,RPMS,SOURCES,SPECS}
-
     - name: Download source tarball
       run: |
         wget -P /github/home/SOURCES/ \
